@@ -1,0 +1,260 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Jagrit Chaudhry Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#F5F6F9; --surface:#FFFFFF; --ink:#101A33; --muted:#566079; --line:#D9DEE8;
+  --accent:#2347E0; --accent-soft:#E6ECFF; --accent-ink:#FFFFFF;
+  --f-display:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1222; --surface:#121B31; --ink:#EAEFFA; --muted:#9BA8C4; --line:#26324D;
+  --accent:#7EA2FF; --accent-soft:#1B2A52; --accent-ink:#0B1222; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1222; --surface:#121B31; --ink:#EAEFFA; --muted:#9BA8C4; --line:#26324D;
+  --accent:#7EA2FF; --accent-soft:#1B2A52; --accent-ink:#0B1222; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--f-body);padding-inline:clamp(16px,5vw,56px);padding-block:0 56px}
+.wrap{max-width:1080px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.mono{font:500 12px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:24px;flex-wrap:wrap}
+.top b{font:800 18px var(--f-display);letter-spacing:.02em}
+.top nav{display:flex;gap:20px;flex-wrap:wrap;font-size:15px}
+.top nav a{color:var(--muted);text-decoration:none}
+.top nav a:hover{color:var(--ink)}
+
+.hero{display:grid;gap:40px;padding-block:48px 56px;border-bottom:1px solid var(--line)}
+@media(min-width:880px){.hero{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-items:end}}
+.hero h1{font-weight:800;font-size:clamp(54px,11vw,124px);line-height:.92;letter-spacing:-.03em}
+.hero .sub{margin-top:28px;font-size:clamp(19px,2.4vw,23px);max-width:34ch;line-height:1.4}
+.facts{margin:0;display:grid;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px 20px}
+.facts div{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.facts div:first-child{border-top:0}
+.facts dt{font:500 12px/1.6 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:0;font-size:15px}
+
+section{padding-block:56px;border-bottom:1px solid var(--line);display:grid;gap:28px}
+section>header{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+h2{font-weight:800;font-size:clamp(32px,5vw,46px);line-height:1;letter-spacing:-.02em}
+
+.work{display:grid;gap:20px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,3vw,32px);display:grid;gap:20px}
+@media(min-width:880px){.case.feature{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px}}
+.case h3{font-weight:800;font-size:clamp(30px,4vw,40px);line-height:1;letter-spacing:-.02em}
+.case p{color:var(--muted)}
+.case .body{display:grid;gap:14px;align-content:start;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 12px var(--f-mono);letter-spacing:.04em;padding:4px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:16px;font-family:inherit}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.pair{display:grid;gap:20px}
+@media(min-width:720px){.pair{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.pair .case{align-content:start}
+.pair h3{font-size:28px}
+
+.stub{background:var(--accent-soft);border-radius:12px;padding:20px;display:grid;gap:14px;align-content:start;position:relative;min-width:0}
+.stub .row{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-bottom:1.5px dashed var(--muted);padding-bottom:12px}
+.stub .row:last-of-type{border-bottom:0;padding-bottom:0}
+.stub .k{font:500 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stub .v{font:800 28px/1 var(--f-display);text-align:right}
+.stub small{color:var(--muted);font-size:13px}
+
+.timeline{display:grid;gap:0}
+.job{display:grid;gap:8px 32px;padding-block:24px;border-top:1px solid var(--line)}
+.job:first-child{border-top:0;padding-top:0}
+@media(min-width:760px){.job{grid-template-columns:200px minmax(0,1fr)}}
+.job h3{font-size:24px;font-weight:800;letter-spacing:-.01em}
+.job .org{color:var(--muted);margin-top:2px}
+.job ul{margin:10px 0 0;padding-left:20px;display:grid;gap:6px;color:var(--muted)}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px 36px}
+.skills div{border-top:3px solid var(--ink);padding-top:12px;display:grid;gap:8px;align-content:start}
+.skills p{color:var(--muted);font-size:15px}
+
+.two{display:grid;gap:32px}
+@media(min-width:760px){.two{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}}
+.two h3{font-size:24px;font-weight:800;margin-bottom:12px}
+.edu{display:grid;gap:16px}
+.edu div{display:grid;gap:2px}
+.edu span{color:var(--muted);font-size:15px}
+ul.plain{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted)}
+
+.contact{display:grid;gap:20px}
+.contact h2{font-size:clamp(40px,8vw,84px)}
+.mail{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.mail code{font:500 18px var(--f-mono);overflow-wrap:anywhere;user-select:all}
+.foot{padding-top:28px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <b>Jagrit Chaudhry</b>
+    <nav aria-label="Sections"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#about">Education</a><a href="#contact">Contact</a></nav>
+  </div>
+
+  <header class="hero">
+    <div>
+      <h1>Jagrit<br>Chaudhry</h1>
+      <p class="sub">I'm a computer science student at DTU. I build software, test it, and care how it feels to use.</p>
+    </div>
+    <dl class="facts" aria-label="At a glance">
+      <div><dt>Studying</dt><dd>B.Tech Computer Science, Delhi Technological University, 2023 to 2027</dd></div>
+      <div><dt>Latest role</dt><dd>Trainee Support Intern, Tech Mahindra, May to Jul 2026</dd></div>
+      <div><dt>Also</dt><dd>QA tester trainee, data analytics intern, IIT Madras BS student</dd></div>
+      <div><dt>Based in</dt><dd>Delhi, India</dd></div>
+    </dl>
+  </header>
+
+  <section id="work">
+    <header><h2>Selected work</h2><span class="mono">4 projects</span></header>
+    <div class="work">
+
+      <article class="case feature">
+        <div class="body">
+          <span class="mono">Product design · Nielsen internship assignment</span>
+          <h3>SwiftTicket</h3>
+          <p>A one-handed ticketing app for bus conductors. The brief: select a destination and issue tickets for 3 passengers in under 4 seconds, on a moving bus, in glare, with cash in the other hand.</p>
+          <p>I put stop, passenger count and fare on one screen, kept the main actions in the thumb zone, and built a clickable prototype with a built-in timer. It also covers printer failure, offline tickets, low battery, voids and a high-glare mode.</p>
+          <div class="chips"><span class="chip">Product design</span><span class="chip">Prototype</span><span class="chip">Accessibility</span><span class="chip">Edge cases</span></div>
+          <div class="btns"><a class="btn" href="https://drive.google.com/drive/folders/1al59j_p_8yEJYs0js8lOCUsYLxXobt2T?usp=sharing" target="_blank" rel="noreferrer">Open the case study and prototype</a></div>
+        </div>
+        <aside class="stub" aria-label="SwiftTicket key numbers">
+          <div class="row"><span class="k">Taps for 3 tickets</span><span class="v">3</span></div>
+          <div class="row"><span class="k">Repeat stop</span><span class="v">2 taps</span></div>
+          <div class="row"><span class="k">Time target</span><span class="v">4 s</span></div>
+          <small>The 4 second target is not yet tested with conductors. The case study includes the test plan.</small>
+        </aside>
+      </article>
+
+      <div class="pair">
+        <article class="case">
+          <span class="mono">Full stack</span>
+          <h3>Sangam</h3>
+          <p>A platform for finding concerts and college fests, with swipe-based matching for people attending alone and a live, crowd-sourced venue safety map.</p>
+          <p>I built the REST API and the real-time layer from scratch with Node.js's HTTP module and Server-Sent Events. The matching logic is unit tested and the data layer is ready for a database.</p>
+          <div class="chips"><span class="chip">Node.js</span><span class="chip">JavaScript</span><span class="chip">REST API</span><span class="chip">SSE</span></div>
+        </article>
+        <article class="case">
+          <span class="mono">Machine learning</span>
+          <h3>Hinglish Emotion Detection</h3>
+          <p>A model that classifies emotions in Hinglish text, trained on more than 10,000 labelled samples with Transformer architectures. A Flask web page returns predictions in real time.</p>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Transformers</span><span class="chip">Flask</span></div>
+          <div class="btns"><a class="btn ghost" href="https://github.com/Jagrit-09/emotion-vibecheck" target="_blank" rel="noreferrer">GitHub</a></div>
+        </article>
+        <article class="case">
+          <span class="mono">Game</span>
+          <h3>Flappy Toad</h3>
+          <p>A 2D physics-based arcade game with obstacle generation, collision detection, scoring and responsive controls.</p>
+          <div class="chips"><span class="chip">Unity</span><span class="chip">C#</span></div>
+          <div class="btns"><a class="btn ghost" href="https://youtu.be/0-rgTzRzrA8" target="_blank" rel="noreferrer">Watch the demo</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <header><h2>Experience</h2><span class="mono">3 roles</span></header>
+    <div class="timeline">
+      <div class="job">
+        <div class="mono">May to Jul 2026</div>
+        <div>
+          <h3>Trainee Support Intern</h3><div class="org">Tech Mahindra · Blue Marble BSS</div>
+          <ul>
+            <li>Worked with enterprise telecom Business Support Systems and Blue Marble modules for customer, billing, product and service management.</li>
+            <li>Worked with QA, development, DevOps and IT support teams, using ServiceNow for incident management and technical documentation.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="mono">Jul 2025</div>
+        <div>
+          <h3>QA Tester Trainee</h3><div class="org">Keywords Studios India</div>
+          <ul>
+            <li>Ran functional, regression and compatibility tests across PC, console, mobile and VR.</li>
+            <li>Executed test cases and logged defects in Jira, and checked builds with senior testers.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job">
+        <div class="mono">Jul to Aug 2024</div>
+        <div>
+          <h3>Business Development and Data Analytics Intern</h3><div class="org">Younity.in</div>
+          <ul>
+            <li>Cleaned, analysed and charted data in Excel to support business outreach and client engagement.</li>
+            <li>Contributed to business development work aimed at winning clients and growing revenue.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <header><h2>Skills</h2></header>
+    <div class="skills">
+      <div><h3>Programming</h3><p>C, C++, Python, C#, JavaScript, HTML, CSS</p></div>
+      <div><h3>Tools and platforms</h3><p>Git, GitHub, VS Code, Unity, Unreal Engine, Flask, AWS, Jira, ServiceNow</p></div>
+      <div><h3>Machine learning</h3><p>Scikit-learn, Transformers, Hugging Face, NLP, Pandas, NumPy</p></div>
+      <div><h3>Data analytics</h3><p>Exploratory analysis, data cleaning, visualisation, basic statistics, Excel</p></div>
+      <div><h3>Software testing</h3><p>Manual testing, regression testing, bug reporting</p></div>
+      <div><h3>Enterprise systems</h3><p>Telecom BSS, CRM, billing systems, IT service management</p></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="two">
+      <div>
+        <h3>Education</h3>
+        <div class="edu">
+          <div><b>Delhi Technological University</b><span>B.Tech, Computer Science, 2023 to 2027. CGPA 7.129</span></div>
+          <div><b>IIT Madras</b><span>BS in Data Science and Applications, diploma level. CGPA 6.0</span></div>
+          <div><b>Bal Bharati Public School</b><span>Class XII: 82%. Class X: 80%</span></div>
+        </div>
+      </div>
+      <div>
+        <h3>Achievements and activities</h3>
+        <ul class="plain">
+          <li>Completed Harvard CS50: C, Python, SQL, web development and algorithms.</li>
+          <li>Completed AWS Technical Essentials and AWS Cloud Practitioner Essentials.</li>
+          <li>Built part of the front end of a healthcare web application at the DTU Hackathon.</li>
+          <li>Won a Mortal Kombat 1 gaming tournament.</li>
+          <li>Volunteered in digital literacy programmes for underprivileged children.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" style="border-bottom:0">
+    <h2>Say hello</h2>
+    <p style="color:var(--muted);max-width:52ch">I'm open to internships in product design, software and QA. Email is the quickest way to reach me.</p>
+    <div class="mail"><code id="addr">jagritworkchaudhry1409@gmail.com</code><button class="btn ghost" id="copy" type="button">Copy email</button></div>
+    <div class="btns">
+      <a class="btn" href="https://www.linkedin.com/in/jagrit-chaudhry-448690309/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/Jagrit-09" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </section>
+
+  <div class="foot"><span>Jagrit Chaudhry · Delhi</span><span>SwiftTicket is an independent concept and is not affiliated with BMTC, BEST or Nielsen.</span></div>
+</div>
+
+<script>
+(function(){
+var b=document.getElementById('copy'),a=document.getElementById('addr');
+b.addEventListener('click',function(){
+  var t=a.textContent;
+  function ok(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy email'},1800)}
+  function sel(){var r=document.createRange();r.selectNodeContents(a);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press copy'}
+  try{navigator.clipboard.writeText(t).then(ok,sel)}catch(e){sel()}
+});
+})();
+</script>
+
+</body></html>

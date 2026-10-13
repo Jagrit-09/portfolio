@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SwiftTicket — Clickable Concept</title>
+<style>
+:root{--navy:#102b4e;--blue:#0877e8;--bg:#f3f7fb;--ink:#13263d;--muted:#5a6b7d;--line:#d7e2ed;--green:#147d43;--red:#b42318}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:16px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}
+header{background:var(--navy);color:white;padding:18px max(16px,calc((100vw - 1100px)/2));display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+header strong{font-size:20px;letter-spacing:.3px}header small{opacity:.85}
+main{max-width:1100px;margin:24px auto;padding:0 16px;display:grid;grid-template-columns:minmax(300px,410px) 1fr;gap:24px}
+.phone{background:white;border:8px solid #16283b;border-radius:34px;min-height:720px;overflow:hidden;box-shadow:0 12px 36px #17314c20;display:flex;flex-direction:column}
+.status{padding:8px 18px 4px;font-size:12px;color:#46596e;display:flex;justify-content:space-between}
+.apphead{padding:14px 18px;background:#fff;border-bottom:1px solid var(--line)}.apphead b{font-size:20px;color:var(--navy)}.apphead div{font-size:13px;color:var(--muted)}
+.content{padding:16px;display:flex;flex-direction:column;gap:12px;flex:1}
+.kicker{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+label{font-size:13px;font-weight:750;display:block;margin-bottom:6px}
+button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:12px;min-height:48px;padding:12px 14px;font-weight:750}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #ffbf47;outline-offset:2px}
+.primary{background:var(--blue);color:#fff}.secondary{background:#eaf3ff;color:var(--navy);border:1px solid #c9def8}.plain{background:white;border:1px solid var(--line);color:var(--navy)}
+.route-list{display:grid;gap:8px}.route{display:flex;justify-content:space-between;align-items:center;text-align:left;background:white;border:1px solid var(--line);color:var(--navy)}.route[aria-pressed=true]{border:2px solid var(--blue);background:#eff6ff}
+.row{display:flex;gap:10px;align-items:center}.row>*{flex:1}.count{font-size:30px;font-weight:850;text-align:center}.stepper button{font-size:24px;padding:8px}
+.fare{background:#f0f6fd;border:1px solid #d9e9f9;border-radius:16px;padding:14px}.fare small{display:block;color:var(--muted);font-weight:650}.fare strong{font-size:38px;letter-spacing:-1px;color:var(--navy)}
+.actions{margin-top:auto;display:grid;gap:8px}.ticket{border:2px dashed #9db4cb;padding:16px;border-radius:16px;text-align:center}.ticket .amount{font-size:42px;font-weight:900}.icon{font-size:34px}.notice{padding:12px;border-radius:12px;background:#fff4e5;color:#733b00;font-size:14px}.success{background:#e9f8ef;color:#14532d}.error{background:#fff0f0;color:#8a1c1c}
+.tabs{display:flex;border-top:1px solid var(--line);padding:8px;gap:6px}.tabs button{flex:1;background:white;color:var(--muted);font-size:12px;padding:8px 3px;min-height:44px}.tabs button.active{color:var(--blue);background:#eff6ff}
+.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:20px}.panel h2{margin:0 0 10px;color:var(--navy)}.panel p,.panel li{color:#405267}.metric{font-size:30px;font-weight:850;color:var(--navy)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tag{display:inline-block;padding:4px 8px;background:#eaf3ff;border-radius:999px;color:#164675;font-size:12px;font-weight:800}.hidden{display:none!important}.small{font-size:12px;color:var(--muted)}
+@media(max-width:760px){main{grid-template-columns:1fr}.phone{max-width:410px;width:100%;margin:auto}.grid{grid-template-columns:1fr}}
+</style></head><body>
+<header><div><strong>SwiftTicket</strong><br><small>Bus conductor ticketing</small></div><div><span class="tag">Sample data</span></div></header>
+<main>
+<section class="phone" aria-label="Interactive ticketing prototype">
+<div class="status"><span>10:24</span><span>●●●  ▰</span></div>
+<div class="apphead"><b id="screenTitle">Choose destination</b><div id="screenSub">Select a route, then issue a ticket.</div></div>
+<div class="content" id="screen"></div>
+<nav class="tabs" aria-label="Main navigation">
+<button class="active" data-tab="ticket">▣<br>Ticket</button><button data-tab="recent">◷<br>Recent</button><button data-tab="shift">▤<br>Shift</button>
+</nav></section>
+<section class="panel">
+<h2>About this demo</h2>
+<p>Try the ticket flow using sample routes and fares.</p>
+<div class="grid">
+<div><div class="kicker">Speed target</div><div class="metric">≤ 4 s</div><p class="small">Not yet measured. Use the stopwatch below during repeated trials.</p></div>
+<div><div class="kicker">Accessibility</div><div class="metric">48 px</div><p class="small">Target touch size for primary controls; check contrast and type in final Figma frames.</p></div>
+</div>
+<h3>Test protocol</h3><ol><li>Start stopwatch.</li><li>Select a familiar destination.</li><li>Set passenger count to 3.</li><li>Issue the ticket; stop when confirmation is visible.</li><li>Repeat 10 times and report median, errors and handedness.</li></ol>
+<div class="row"><button class="primary" id="startTimer">Start timer</button><button class="secondary" id="stopTimer">Stop / record</button></div>
+<p><b id="timer">00.00 s</b> <span id="trialMsg" class="small">No trial recorded.</span></p>
+<h3>Design choices</h3><ul><li>Each new ticket starts at 1 passenger.</li><li>Recent routes stay visible on the screen.</li><li>The destination, passenger count and fare stay visible before issue.</li><li>Void, reprint and offline options are examples.</li></ul>
+<p class="small">Sample routes and fares are used in this demo. This is not a live ticketing system.</p>
+</section></main>
+<script>
+const routes=[{name:"Majestic",fare:15},{name:"Shivajinagar",fare:12},{name:"Yeshwanthpur",fare:20},{name:"Kempegowda Bus Station",fare:18}];
+let selected=routes[0],count=1,view="ticket",lastTicket=null,history=[],startAt=null,trialTimes=[];
+const $=id=>document.getElementById(id);
+function money(n){return "₹"+n.toFixed(2)}
+function nav(v){view=v;document.querySelectorAll("[data-tab]").forEach(b=>b.classList.toggle("active",b.dataset.tab===v));render()}
+function render(){
+ const el=$("screen");
+ if(view==="recent"){ $("screenTitle").textContent="Recent tickets";$("screenSub").textContent="Tap a journey to review or re-display it.";el.innerHTML=history.length?history.map((t,i)=>`<button class="route" data-history="${i}"><span><b>${t.route}</b><br><small>${t.count} passenger(s) · ${t.id}</small></span><b>${money(t.total)}</b></button>`).join(""):`<p>No tickets in this demo yet.</p>`;el.querySelectorAll("[data-history]").forEach(b=>b.onclick=()=>{lastTicket=history[+b.dataset.history];view="ticket";showTicket(lastTicket)});return}
+ if(view==="shift"){ $("screenTitle").textContent="Shift summary";$("screenSub").textContent="Shift totals";let total=history.reduce((a,t)=>a+t.total,0);el.innerHTML=`<div class="fare"><small>Tickets issued</small><strong>${history.length}</strong><small>Total value (sample data)</small><strong>${money(total)}</strong></div><div class="notice">Sync status: <b>Demo · local only</b>. Sample data only.</div><button class="secondary" id="offlineToggle">Simulate offline / sync pending</button><div id="offlineState" class="small"></div><button class="plain" id="recon">Review reconciliation</button>`;$("offlineToggle").onclick=()=>{$("offlineState").innerHTML='<span class="notice">OFFLINE · sample transactions kept in this browser session.</span>'};$("recon").onclick=()=>alert(`Demo reconciliation\\nTickets: ${history.length}\\nValue: ${money(total)}\\nVoids: 0 (sample)\\nPending sync: demo only`);return}
+ if(lastTicket){showTicket(lastTicket);return}
+ $("screenTitle").textContent="Choose destination";$("screenSub").textContent="One-hand flow · sample routes and fares";
+ el.innerHTML=`<div class="kicker">Recent destinations</div><div class="route-list">${routes.map((r,i)=>`<button class="route" data-route="${i}" aria-pressed="${selected.name===r.name}"><span><b>${r.name}</b><br><small>Tap to select</small></span><span>${money(r.fare)} ›</span></button>`).join("")}</div>
+ <div><label for="count">Passengers</label><div class="row stepper"><button class="secondary" id="minus" aria-label="Remove one passenger">−</button><div class="count" id="count">${count}</div><button class="secondary" id="plus" aria-label="Add one passenger">+</button></div><div class="small">Default 1 · sample adult fare only</div></div>
+ <div class="fare"><small>DESTINATION · ${selected.name.toUpperCase()}</small><small>Total fare</small><strong>${money(selected.fare*count)}</strong><small>${count} × ${money(selected.fare)} · sample fare, not official fare data</small></div>
+ <div class="actions"><button class="primary" id="issue">Issue ticket →</button><button class="plain" id="concession">Passenger type / concession</button></div>`;
+ el.querySelectorAll("[data-route]").forEach(b=>b.onclick=()=>{selected=routes[+b.dataset.route];render()});
+ $("minus").onclick=()=>{count=Math.max(1,count-1);render()};$("plus").onclick=()=>{count=Math.min(20,count+1);render()};
+ $("issue").onclick=()=>{const t={route:selected.name,count,total:selected.fare*count,id:"ST-"+Math.random().toString(36).slice(2,8).toUpperCase(),time:new Date().toLocaleTimeString()};history.unshift(t);lastTicket=t;showTicket(t)};
+ $("concession").onclick=()=>{el.insertAdjacentHTML("beforeend",`<div class="notice"><b>Example only.</b> Select a category only after the operator confirms eligibility, fare rules and proof requirements. Demo: Adult / Concession / Pass / Zero fare.</div>`)};
+}
+function showTicket(t){view="ticket";$("screenTitle").textContent="Ticket issued";$("screenSub").textContent="Confirmation stays visible until Next passenger or timeout.";const el=$("screen");el.innerHTML=`<div class="ticket"><div class="icon">✓</div><h2>Ticket issued</h2><div class="amount">${money(t.total)}</div><p><b>${t.route}</b><br>${t.count} passenger(s)<br><small>${t.id} · ${t.time||"just now"}</small></p><div class="tag">SAMPLE TICKET</div></div><div class="notice success">Ticket confirmation shown.</div><button class="secondary" id="print">Print / re-display (demo)</button><button class="plain" id="void">Void ticket (demo)</button><div class="actions"><button class="primary" id="next">Next passenger</button></div>`;$("print").onclick=()=>alert("This is a sample re-display.");$("void").onclick=()=>{if(confirm("Void this sample ticket?")){history=history.filter(x=>x.id!==t.id);lastTicket=null;count=1;render();alert("Sample ticket removed.")}};$("next").onclick=()=>{lastTicket=null;count=1;selected=routes[0];render()}}
+document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{lastTicket=null;nav(b.dataset.tab)});
+let tick=null;$("startTimer").onclick=()=>{startAt=performance.now();$("timer").textContent="Timing…";$("trialMsg").textContent="Trial in progress.";if(tick)clearInterval(tick);tick=setInterval(()=>{$("timer").textContent=((performance.now()-startAt)/1000).toFixed(2)+" s"},50)};
+$("stopTimer").onclick=()=>{if(startAt===null){$("trialMsg").textContent="Start the timer first.";return}let sec=(performance.now()-startAt)/1000;trialTimes.push(sec);startAt=null;if(tick)clearInterval(tick);let sorted=[...trialTimes].sort((a,b)=>a-b);let med=sorted.length%2?sorted[(sorted.length-1)/2]:(sorted[sorted.length/2-1]+sorted[sorted.length/2])/2;$("timer").textContent=sec.toFixed(2)+" s";$("trialMsg").textContent=`Trial ${trialTimes.length}: median ${med.toFixed(2)} s. Record errors separately.`};
+render();
+</script></body></html>
